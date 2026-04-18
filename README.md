@@ -9,7 +9,7 @@ A terminal-playable Flappy Bird game implemented in Python using pygame-ce. Cont
 * Created by [Chen Konturek](https://github.com/chenkonturek/)
 * MIT License
 
-<img src="docs/images/icon.png" alt="Flappy Bird gameplay" width="120"/>
+<img src="docs/images/icon.png" alt="Flappy Bird gameplay" width="250"/>
 
 ## Features
 
