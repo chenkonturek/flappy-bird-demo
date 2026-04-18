@@ -4,7 +4,7 @@
 
 A terminal-playable Flappy Bird game implemented in Python using pygame-ce. Control a bird through procedurally-generated pipes and beat your high score.
 
-* [GitHub](https://github.com/chenkonturek/flappy-bird-demo/) | [PyPI](https://pypi.org/project/flappy-bird-demo/) | [Documentation](https://chenkonturek.github.io/flappy-bird-demo/)
+* [GitHub](https://github.com/chenkonturek/flappy-bird-demo/)
 * Created by [Chen Konturek](https://github.com/chenkonturek/)
 * MIT License
 
