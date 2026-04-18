@@ -47,3 +47,12 @@ def test_bird_hits_ground(config: GameConfig) -> None:
 def test_bird_rect(config: GameConfig) -> None:
     bird = Bird(x=80.7, y=200.3, width=config.bird_width, height=config.bird_height)
     assert bird.rect == (80, 200, config.bird_width, config.bird_height)
+
+
+def test_bird_rect_dimensions_match_config(config: GameConfig) -> None:
+    bird = Bird(x=config.bird_x, y=100.0, width=config.bird_width, height=config.bird_height)
+    bx, by, bw, bh = bird.rect
+    assert bw == config.bird_width
+    assert bh == config.bird_height
+    # renderer draws tail with ±5px and beak 8px wide — need bh//2 >= 5
+    assert bh // 2 >= 5
