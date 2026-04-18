@@ -46,7 +46,7 @@ class Renderer:  # pragma: no cover
 
         # Bird
         bx, by, bw, bh = game.bird.rect
-        pygame.draw.rect(self.screen, (255, 215, 0), (bx, by, bw, bh))  # Yellow
+        self._draw_bird(bx, by, bw, bh)
 
         # Score
         score_surf = self.font.render(str(game.score.current), True, (255, 255, 255))
@@ -72,6 +72,40 @@ class Renderer:  # pragma: no cover
             )
 
         pygame.display.flip()
+
+    def _draw_bird(self, bx: int, by: int, bw: int, bh: int) -> None:  # pragma: no cover
+        pygame = self._pygame
+        cy = by + bh // 2
+
+        # Tail (left-pointing triangle)
+        tail_pts = [(bx + 4, cy), (bx - 6, cy - 5), (bx - 6, cy + 5)]
+        pygame.draw.polygon(self.screen, (200, 160, 0), tail_pts)
+
+        # Wing (dark ellipse, lower body)
+        pygame.draw.ellipse(self.screen, (200, 160, 0), (bx + 4, cy, bw - 16, bh // 2 - 1))
+
+        # Body
+        pygame.draw.ellipse(self.screen, (255, 215, 0), (bx, by + 2, bw - 4, bh - 4))
+
+        # Head (circle at right end)
+        head_r = bh // 2
+        head_cx = bx + bw - head_r - 2
+        head_cy = by + bh // 2
+        pygame.draw.circle(self.screen, (255, 225, 50), (head_cx, head_cy), head_r)
+
+        # Eye
+        eye_x = head_cx + head_r // 3
+        eye_y = head_cy - head_r // 4
+        pygame.draw.circle(self.screen, (255, 255, 255), (eye_x, eye_y), 4)
+        pygame.draw.circle(self.screen, (20, 20, 20), (eye_x + 1, eye_y), 2)
+
+        # Beak (orange triangle pointing right)
+        beak_pts = [
+            (head_cx + head_r, head_cy),
+            (head_cx + head_r + 8, head_cy + 2),
+            (head_cx + head_r, head_cy + 5),
+        ]
+        pygame.draw.polygon(self.screen, (255, 120, 0), beak_pts)
 
     def tick(self, fps: int) -> None:  # pragma: no cover
         self.clock.tick(fps)
