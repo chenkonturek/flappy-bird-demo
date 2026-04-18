@@ -3,6 +3,6 @@
 import flappy_bird_demo
 
 
-def test_import():
+def test_flappy_bird_demo_is_importable() -> None:
     """Verify the package can be imported."""
     assert flappy_bird_demo

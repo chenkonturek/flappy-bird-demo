@@ -1,7 +1,5 @@
 """Pygame rendering — the only module that imports pygame."""
 
-from __future__ import annotations
-
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -24,7 +22,7 @@ class Renderer:  # pragma: no cover
         self.font = pygame.font.SysFont(None, 36)
         self.small_font = pygame.font.SysFont(None, 24)
 
-    def draw_frame(self, game: Game) -> None:  # pragma: no cover
+    def draw_frame(self, game: "Game") -> None:  # pragma: no cover
         pygame = self._pygame
         config = self.config
 
