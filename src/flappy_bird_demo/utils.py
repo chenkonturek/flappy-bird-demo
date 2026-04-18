@@ -1,2 +1,1 @@
-def do_something_useful() -> None:
-    print("Replace this with a utility function")
+"""Cross-cutting helpers for flappy_bird_demo."""

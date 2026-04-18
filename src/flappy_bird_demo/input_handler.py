@@ -1,7 +1,5 @@
 """Pygame input handling — imports pygame."""
 
-from __future__ import annotations
-
 
 class InputHandler:  # pragma: no cover
     def __init__(self) -> None:

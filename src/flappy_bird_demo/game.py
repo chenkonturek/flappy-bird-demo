@@ -9,12 +9,16 @@ from flappy_bird_demo.score import Score
 
 
 class GameState(Enum):
+    """Represent the three possible phases of a game session."""
+
     IDLE = auto()
     PLAYING = auto()
     GAME_OVER = auto()
 
 
 class Game:
+    """Coordinate all game entities and enforce game rules."""
+
     def __init__(self, config: GameConfig) -> None:
         self.config = config
         self.bird = Bird(

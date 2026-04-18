@@ -5,6 +5,8 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class GameConfig:
+    """Immutable configuration for all game constants."""
+
     screen_width: int = 400
     screen_height: int = 600
     gravity: float = 0.5

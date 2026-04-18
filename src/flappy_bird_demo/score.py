@@ -2,6 +2,8 @@
 
 
 class Score:
+    """Track current and all-time high score."""
+
     def __init__(self) -> None:
         self.current: int = 0
         self.high: int = 0
