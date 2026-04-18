@@ -17,7 +17,16 @@ class GameState(Enum):
 
 
 class Game:
-    """Coordinate all game entities and enforce game rules."""
+    """Coordinate all game entities and enforce game rules.
+
+    Attributes:
+        config: Shared game configuration.
+        bird: The player-controlled bird entity.
+        score: Current and all-time high score tracker.
+        pipes: Active pipe obstacles currently on screen.
+        state: Current phase of the game session.
+        tick_count: Total simulation ticks elapsed since the last reset.
+    """
 
     def __init__(self, config: GameConfig) -> None:
         self.config = config

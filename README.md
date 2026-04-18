@@ -1,6 +1,6 @@
 # flappy-bird-demo
 
-![Python versions](https://img.shields.io/pypi/pyversions/flappy-bird-demo.svg)
+![Python versions](https://img.shields.io/badge/python-3.12%20%7C%203.13%20%7C%203.14-blue)
 ![CI](https://github.com/chenkonturek/flappy-bird-demo/actions/workflows/ci.yml/badge.svg)
 
 A terminal-playable Flappy Bird game implemented in Python using pygame-ce. Control a bird through procedurally-generated pipes and beat your high score.

@@ -2,7 +2,12 @@
 
 
 class Score:
-    """Track current and all-time high score."""
+    """Track current and all-time high score.
+
+    Attributes:
+        current: Points accumulated in the ongoing session.
+        high: Highest score achieved since the process started.
+    """
 
     def __init__(self) -> None:
         self.current: int = 0
