@@ -1,20 +1,37 @@
 """Console script for flappy_bird_demo."""
 
 import typer
-from rich.console import Console
 
-from flappy_bird_demo import utils
+from flappy_bird_demo.config import GameConfig
+from flappy_bird_demo.game import Game, GameState
+from flappy_bird_demo.input_handler import InputHandler
+from flappy_bird_demo.renderer import Renderer
 
 app = typer.Typer()
-console = Console()
 
 
 @app.command()
 def main() -> None:
-    """Console script for flappy_bird_demo."""
-    console.print("Replace this message by putting your code into flappy_bird_demo.cli.main")
-    console.print("See Typer documentation at https://typer.tiangolo.com/")
-    utils.do_something_useful()
+    """Launch the Flappy Bird game."""
+    config = GameConfig()
+    game = Game(config)
+    renderer = Renderer(config)
+    handler = InputHandler()
+    try:
+        while True:
+            flap, quit_ = handler.poll()
+            if quit_:
+                break
+            if flap:
+                if game.state == GameState.GAME_OVER:
+                    game.reset()
+                else:
+                    game.handle_flap()
+            game.update()
+            renderer.draw_frame(game)
+            renderer.tick(config.fps)
+    finally:
+        renderer.close()
 
 
 if __name__ == "__main__":
