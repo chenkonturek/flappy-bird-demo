@@ -9,7 +9,7 @@ This project is managed with **uv** and **just**. All Python commands run under 
 ## Common commands
 
 - `just qa` — full local gate: `ruff format`, `ruff check --fix`, isort via `ruff --select I --fix`, `ty check`, `pytest`. Run this before committing.
-- `just test` / `just t` — run pytest on 3.14. Forwards args, e.g. `just test tests/test_flappy_bird_demo.py::test_import -k pattern -x`.
+- `just test` / `just t` — run pytest on 3.12. Forwards args, e.g. `just test tests/test_flappy_bird_demo.py::test_import -k pattern -x`.
 - `just testall` — pytest on 3.12, 3.13, 3.14 (mirrors CI's matrix).
 - `just pdb ARGS` — pytest with `--pdb --maxfail=10`.
 - `just coverage` — runs `coverage run -m pytest` on each Python, then `coverage combine` + `report` + `html`. Coverage is configured branch+parallel, `fail_under = 50`, sources `src/` and `tests/`.
