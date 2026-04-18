@@ -2,21 +2,46 @@
 
 ![PyPI version](https://img.shields.io/pypi/v/flappy-bird-demo.svg)
 
-Python Boilerplate contains all the boilerplate you need to create a Python package.
+A terminal-playable Flappy Bird game implemented in Python using pygame-ce. Control a bird through procedurally-generated pipes and beat your high score.
 
-* [GitHub](https://github.com/audreyfeldroy/flappy-bird-demo/) | [PyPI](https://pypi.org/project/flappy-bird-demo/) | [Documentation](https://audreyfeldroy.github.io/flappy-bird-demo/)
-* Created by [Chen Konturek](https://audrey.feldroy.com/) | GitHub [@audreyfeldroy](https://github.com/audreyfeldroy) | PyPI [@audreyfeldroy](https://pypi.org/user/audreyfeldroy/)
+* [GitHub](https://github.com/chenkonturek/flappy-bird-demo/) | [PyPI](https://pypi.org/project/flappy-bird-demo/) | [Documentation](https://chenkonturek.github.io/flappy-bird-demo/)
+* Created by [Chen Konturek](https://github.com/chenkonturek/)
 * MIT License
 
 ## Features
 
-* TODO
+* pygame-ce powered 2D game running at 60 FPS in a 400×600 window
+* Physics simulation with gravity and flap mechanics
+* Procedurally generated pipes with randomised gaps
+* Session score + all-time high score tracking
+* Clean architecture: game logic fully separated from rendering and input
+
+## Controls
+
+| Key / Action | Effect |
+|---|---|
+| Space / Mouse click | Flap / Start / Restart |
+| Esc / Close window | Quit |
+
+## Quickstart
+
+```bash
+pip install flappy-bird-demo
+flappy_bird_demo
+```
+
+Or run from source:
+
+```bash
+uv tool install --editable .
+flappy_bird_demo
+```
 
 ## Documentation
 
 Documentation is built with [Zensical](https://zensical.org/) and deployed to GitHub Pages.
 
-* **Live site:** https://audreyfeldroy.github.io/flappy-bird-demo/
+* **Live site:** https://chenkonturek.github.io/flappy-bird-demo/
 * **Preview locally:** `just docs-serve` (serves at http://localhost:8000)
 * **Build:** `just docs-build`
 
