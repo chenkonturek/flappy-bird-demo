@@ -10,6 +10,13 @@ from flappy_bird_demo.game import GameState
 
 
 class Renderer:  # pragma: no cover
+    """Render the game state to a pygame window.
+
+    Draws the sky background, green pipes, an animated bird sprite, the
+    current score, and state overlays (idle prompt and game-over screen).
+    Targets 60 FPS in a 400×600 window by default.
+    """
+
     def __init__(self, config: GameConfig) -> None:
         import pygame  # noqa: PLC0415
 
@@ -23,6 +30,11 @@ class Renderer:  # pragma: no cover
         self.small_font = pygame.font.SysFont(None, 24)
 
     def draw_frame(self, game: "Game") -> None:  # pragma: no cover
+        """Draw a complete frame for the given game state.
+
+        Args:
+            game: Current game instance providing bird, pipes, score, and state.
+        """
         pygame = self._pygame
         config = self.config
 
@@ -106,7 +118,13 @@ class Renderer:  # pragma: no cover
         pygame.draw.polygon(self.screen, (255, 120, 0), beak_pts)
 
     def tick(self, fps: int) -> None:  # pragma: no cover
+        """Block until the next frame is due, capping the loop at fps.
+
+        Args:
+            fps: Target frames per second.
+        """
         self.clock.tick(fps)
 
     def close(self) -> None:  # pragma: no cover
+        """Shut down pygame and release the display window."""
         self._pygame.quit()

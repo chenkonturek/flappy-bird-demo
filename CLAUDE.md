@@ -50,8 +50,10 @@ CI (`.github/workflows/ci.yml`) runs lint, `ty check`, the 3.12/3.13/3.14 test m
 - Prefer concrete types over `Any`; use `Any` only when truly unavoidable and leave a comment explaining why.
 
 ### Docstrings
-- Every public module, class, and function must have a one-line docstring in imperative mood ("Return …", "Apply …", "Raise …").
-- Multi-line docstrings only when behaviour is non-obvious; use plain prose (no Google/NumPy decorator style).
+- Every public module, class, and function must have a one-line summary in imperative mood ("Return …", "Apply …", "Raise …").
+- Use [Google Python Style](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings) for multi-line docstrings: `Args:`, `Returns:`, `Raises:`, and `Attributes:` sections.
+- **Class docstrings** describe the class's responsibility. Include an `Attributes:` section for non-obvious fields.
+- **Functions/methods**: add `Args:` for non-obvious parameters and `Returns:` when the shape or conditions of the return value are non-trivial. Omit sections that would only restate the type annotation.
 - Private helpers (`_name`) do not need docstrings unless the logic is subtle.
 
 ### Dataclasses & immutability
