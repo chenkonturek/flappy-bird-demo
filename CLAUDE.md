@@ -41,3 +41,40 @@ CI (`.github/workflows/ci.yml`) runs lint, `ty check`, the 3.12/3.13/3.14 test m
 - Ruff: line length 120; lint rules `E, W, F, I, B, UP`. `ruff format` is the formatter — do not hand-format.
 - Type checking via `ty` (Astral). All rules default to error; override in `[tool.ty]` only when necessary.
 - Python floor is 3.12 (`requires-python = ">= 3.12"`); avoid syntax or stdlib usage that breaks on 3.12.
+
+## Coding Standards
+
+### Type annotations
+- All public functions and methods must have full type annotations (parameters + return type), including `-> None`.
+- Use native union syntax (`X | Y`, `list[X]`) — no need for `from __future__ import annotations` since floor is 3.12.
+- Prefer concrete types over `Any`; use `Any` only when truly unavoidable and leave a comment explaining why.
+
+### Docstrings
+- Every public module, class, and function must have a one-line docstring in imperative mood ("Return …", "Apply …", "Raise …").
+- Multi-line docstrings only when behaviour is non-obvious; use plain prose (no Google/NumPy decorator style).
+- Private helpers (`_name`) do not need docstrings unless the logic is subtle.
+
+### Dataclasses & immutability
+- Use `@dataclass(frozen=True)` for config/value objects that must not change after creation (see `GameConfig`).
+- Use plain `@dataclass` for mutable game entities (see `Bird`).
+
+### Constants & magic numbers
+- Domain constants belong in `GameConfig`; avoid bare numeric literals in logic files.
+- Module-level constants (non-config) go at the top of the module in `SCREAMING_SNAKE_CASE`.
+
+### No bare `print`
+- Use `rich.console.Console` for any terminal output; never use `print()` in library code.
+
+### Error handling
+- Raise `ValueError` / `TypeError` at public API boundaries with a descriptive message.
+- Do not swallow exceptions silently; re-raise or log.
+- Avoid returning `None` to signal failure — raise instead.
+
+### Test conventions
+- Each test module mirrors its source module: `tests/test_<module>.py`.
+- Use `pytest.mark.parametrize` for table-driven cases.
+- Name tests `test_<unit>_<scenario>` (e.g. `test_bird_falls_with_gravity`).
+- Do not mock internal game logic; test real objects using `GameConfig` defaults.
+
+### `utils.py` policy
+- `utils.py` is for genuinely cross-cutting helpers only. Place logic in the most specific module; do not let `utils.py` become a catch-all.
