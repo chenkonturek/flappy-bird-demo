@@ -1,54 +1,40 @@
 # flappy-bird-demo
 
-![PyPI version](https://img.shields.io/pypi/v/flappy-bird-demo.svg)
+![Python versions](https://img.shields.io/pypi/pyversions/flappy-bird-demo.svg)
+![CI](https://github.com/chenkonturek/flappy-bird-demo/actions/workflows/ci.yml/badge.svg)
 
-Python Boilerplate contains all the boilerplate you need to create a Python package.
+A terminal-playable Flappy Bird game implemented in Python using pygame-ce. Control a bird through procedurally-generated pipes and beat your high score.
 
-* [GitHub](https://github.com/audreyfeldroy/flappy-bird-demo/) | [PyPI](https://pypi.org/project/flappy-bird-demo/) | [Documentation](https://audreyfeldroy.github.io/flappy-bird-demo/)
-* Created by [Chen Konturek](https://audrey.feldroy.com/) | GitHub [@audreyfeldroy](https://github.com/audreyfeldroy) | PyPI [@audreyfeldroy](https://pypi.org/user/audreyfeldroy/)
+* [GitHub](https://github.com/chenkonturek/flappy-bird-demo/)
+* Created by [Chen Konturek](https://github.com/chenkonturek/)
 * MIT License
+
+<img src="docs/images/icon.png" alt="Flappy Bird gameplay" width="250"/>
 
 ## Features
 
-* TODO
+* pygame-ce powered 2D game running at 60 FPS in a 400×600 window
+* Physics simulation with gravity and flap mechanics
+* Procedurally generated pipes with randomised gaps
+* Session score + all-time high score tracking
+* Clean architecture: game logic fully separated from rendering and input
 
-## Documentation
+## Controls
 
-Documentation is built with [Zensical](https://zensical.org/) and deployed to GitHub Pages.
+| Key / Action | Effect |
+|---|---|
+| Space / Mouse click | Flap / Start / Restart |
+| Esc / Close window | Quit |
 
-* **Live site:** https://audreyfeldroy.github.io/flappy-bird-demo/
-* **Preview locally:** `just docs-serve` (serves at http://localhost:8000)
-* **Build:** `just docs-build`
+## Quickstart
 
-API documentation is auto-generated from docstrings using [mkdocstrings](https://mkdocstrings.github.io/).
-
-Docs deploy automatically on push to `main` via GitHub Actions. To enable this, go to your repo's Settings > Pages and set the source to **GitHub Actions**.
-
-## Development
-
-To set up for local development:
+**Install from GitHub and run:**
 
 ```bash
-# Clone your fork
-git clone git@github.com:your_username/flappy-bird-demo.git
+git clone https://github.com/chenkonturek/flappy-bird-demo.git
 cd flappy-bird-demo
-
-# Install in editable mode with live updates
 uv tool install --editable .
-```
-
-This installs the CLI globally but with live updates - any changes you make to the source code are immediately available when you run `flappy_bird_demo`.
-
-Run tests:
-
-```bash
-uv run pytest
-```
-
-Run quality checks (format, lint, type check, test):
-
-```bash
-just qa
+flappy_bird_demo
 ```
 
 ## Author
