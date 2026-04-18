@@ -25,14 +25,11 @@ A terminal-playable Flappy Bird game implemented in Python using pygame-ce. Cont
 
 ## Quickstart
 
-```bash
-pip install flappy-bird-demo
-flappy_bird_demo
-```
-
-Or run from source:
+**Install from GitHub and run:**
 
 ```bash
+git clone https://github.com/chenkonturek/flappy-bird-demo.git
+cd flappy-bird-demo
 uv tool install --editable .
 flappy_bird_demo
 ```
