@@ -9,7 +9,7 @@ This project is managed with **uv** and **just**. All Python commands run under 
 ## Common commands
 
 - `just qa` — full local gate: `ruff format`, `ruff check --fix`, isort via `ruff --select I --fix`, `ty check`, `pytest`. Run this before committing.
-- `just test` / `just t` — run pytest on 3.12. Forwards args, e.g. `just test tests/test_flappy_bird_demo.py::test_import -k pattern -x`.
+- `just test` / `just t` — run pytest on 3.14. Forwards args, e.g. `just test tests/test_flappy_bird_demo.py::test_import -k pattern -x`.
 - `just testall` — pytest on 3.12, 3.13, 3.14 (mirrors CI's matrix).
 - `just pdb ARGS` — pytest with `--pdb --maxfail=10`.
 - `just coverage` — runs `coverage run -m pytest` on each Python, then `coverage combine` + `report` + `html`. Coverage is configured branch+parallel, `fail_under = 50`, sources `src/` and `tests/`.
@@ -34,7 +34,7 @@ CI (`.github/workflows/ci.yml`) runs lint, `ty check`, the 3.12/3.13/3.14 test m
 
 1. Bump with `uv version <version>` (or `--bump minor`) and write `CHANGELOG/<version>.md`.
 2. Commit `pyproject.toml`, `uv.lock`, and the changelog entry with message `Release <version>`.
-3. `just release` — tags, pushes, creates the GitHub Release. The tag push triggers `.github/workflows/publish.yml`, which builds, generates SLSA provenance, and publishes to PyPI via trusted publishing. `just publish` is the manual fallback (`uv build && uv publish`).
+3. `just release` — tags, pushes, creates the GitHub Release. The tag push triggers `.github/workflows/publish.yml`, which builds, generates SLSA provenance, and publishes to PyPI via trusted publishing.
 
 ## Conventions enforced by config
 

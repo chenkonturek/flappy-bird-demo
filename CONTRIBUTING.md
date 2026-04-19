@@ -8,7 +8,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/audreyfeldroy/flappy-bird-demo/issues.
+Report bugs at https://github.com/chenkonturek/flappy-bird-demo/issues.
 
 If you are reporting a bug, please include:
 
@@ -34,11 +34,11 @@ To preview the docs locally:
 just docs-serve
 ```
 
-This starts a local server at http://localhost:8000 with live reload. Edit files in `docs/` or add docstrings to your code (the API reference page is auto-generated).
+This starts a local server at http://localhost:8000 with live reload. Edit files in `docs/` or add docstrings to your code (the API reference page is auto-generated via `mkdocstrings-python`).
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/audreyfeldroy/flappy-bird-demo/issues.
+The best way to send feedback is to file an issue at https://github.com/chenkonturek/flappy-bird-demo/issues.
 
 If you are proposing a feature:
 
@@ -54,7 +54,7 @@ Ready to contribute? Here's how to set up flappy-bird-demo for local development
 2. Clone your fork locally:
 
    ```sh
-   git clone git@github.com:your_name_here/flappy-bird-demo.git
+   git clone git@github.com:chenkonturek/flappy-bird-demo.git
    ```
 
 3. Install your local copy with uv:
@@ -72,13 +72,13 @@ Ready to contribute? Here's how to set up flappy-bird-demo for local development
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass linting and the tests:
+5. When you're done making changes, check that your changes pass linting, type checking, and the tests:
 
    ```sh
    just qa
    ```
 
-   Or run the tests alone:
+   This runs `ruff format`, `ruff check --fix`, isort, `ty check`, and `pytest`. Or run the tests alone:
 
    ```sh
    just test
@@ -99,15 +99,39 @@ Ready to contribute? Here's how to set up flappy-bird-demo for local development
 Before you submit a pull request, check that it meets these guidelines:
 
 1. The pull request should include tests.
-2. If the pull request adds functionality, the docs should be updated. Put your new functionality into a function with a docstring, and add the feature to the list in README.md.
-3. The pull request should work for Python 3.12, 3.13, and 3.14. Tests run in GitHub Actions on every pull request to the main branch, make sure that the tests pass for all supported Python versions.
+2. If the pull request adds functionality, the docs should be updated. Put your new functionality into a function with a docstring (Google Python Style), and add the feature to the list in README.md.
+3. The pull request should work for Python 3.12, 3.13, and 3.14. Tests run in GitHub Actions on every pull request to the main branch — make sure the tests pass for all supported Python versions.
 
 ## Tips
 
 To run a subset of tests:
 
 ```sh
-uv run pytest tests/
+just test tests/test_flappy_bird_demo.py::test_name
+```
+
+Or pass pytest flags directly:
+
+```sh
+just test -k pattern -x
+```
+
+To run tests across all supported Python versions:
+
+```sh
+just testall
+```
+
+To run tests with coverage:
+
+```sh
+just coverage
+```
+
+To run type checking:
+
+```sh
+just type-check
 ```
 
 ## Releasing a New Version
