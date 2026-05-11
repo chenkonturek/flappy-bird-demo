@@ -20,6 +20,7 @@ class GameConfig:
         bird_width: Bird sprite width in pixels.
         bird_height: Bird sprite height in pixels.
         fps: Target frames per second for the game loop.
+        sound_enabled: Whether SoundManager initialises pygame mixer and plays audio.
     """
 
     screen_width: int = 400
@@ -34,3 +35,4 @@ class GameConfig:
     bird_width: int = 34
     bird_height: int = 24
     fps: int = 60
+    sound_enabled: bool = True
